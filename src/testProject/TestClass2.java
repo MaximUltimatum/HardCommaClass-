@@ -16,7 +16,7 @@ public class TestClass2 {
 		System.out.println("Do you like chocolate? True/False ");
 		testClass1.candyQuestion = surveyScanner.nextBoolean();
 		
-		if (testClass1.candyQuestion);{
+		if (testClass1.candyQuestion){
 			System.out.println(" You like chocolate");
 		}
 		else{
@@ -26,7 +26,7 @@ public class TestClass2 {
 		System.out.println("Do you like eggs. True/False");
 		testClass1.eggQuestion = surveyScanner.nextBoolean();
 		
-		if (testClass1.eggQuestion);{
+		if (testClass1.eggQuestion){
 			System.out.println("You like eggs");
 		}
 		else{
