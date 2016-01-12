@@ -14,11 +14,12 @@ import java.util.Scanner;
 			touristNumber = touristScanner.nextInt();
 				
 			for(int i = 0; i < touristNumber; i++){
-				System.out.println(" There are " +touristNumber+ " Tourists");
+				Name();
+				Title();
 			}
 		}
 		
-		public void Name(){
+		public static void Name(){
 			Scanner nameScanner = new Scanner(System.in);
 			System.out.println("Hello visitor, what is your name and your title");
 			String touristName = nameScanner.nextLine();
@@ -26,7 +27,7 @@ import java.util.Scanner;
 					System.out.println(" Hello " +touristName+ " The" +touristTitle+ "" );
 		}
 		
-		public void Title(){
+		public static void Title(){
 			Scanner nameScanner = new Scanner(System.in);
 			boolean genderQuestion = nameScanner.nextBoolean();
 			System.out.println(" What is your gender");
