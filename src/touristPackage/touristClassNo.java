@@ -19,9 +19,7 @@ import java.util.Scanner;
 			}
 				
 			for(int i = 0; i < touristNumber; i++){
-				System.out.println("CHECKPOINT 2"); // TODO checkpoint
 				Name();
-				System.out.println("CHECKPOINT 1"); // TODO checkpoint
 				Title();
 			}
 			totalTouristScanner.close();
@@ -39,7 +37,6 @@ import java.util.Scanner;
 			System.out.println("What is your gender (Male/Female)");
 			String genderQuestion = totalTouristScanner.nextLine().trim();
 			System.out.println("You are of the " +genderQuestion+ " gender ");
-			System.out.println("CHECKPOINT 3");  // TODO checkpoint
 			if(genderQuestion.equalsIgnoreCase("Male")){
 				System.out.println(" How old are you ");
 				int ageQuestion = 0;
