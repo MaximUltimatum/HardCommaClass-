@@ -4,39 +4,50 @@ import java.util.Scanner;
 
 	public class touristClassNo {
 		
+		private static Scanner totalTouristScanner = new Scanner(System.in);
+
 		public static void main(String args[]){
-			String touristName;
 			int touristNumber;
 			
-			Scanner touristScanner = new Scanner(System.in);
 			
 			System.out.println(" How many Tourists are there ");
-			touristNumber = touristScanner.nextInt();
+			touristNumber = 0;
+			try {
+				touristNumber = Integer.parseInt(totalTouristScanner.nextLine());
+			} catch (NumberFormatException e) {
+			    e.printStackTrace();
+			}
 				
 			for(int i = 0; i < touristNumber; i++){
+				System.out.println("CHECKPOINT 2"); // TODO checkpoint
 				Name();
+				System.out.println("CHECKPOINT 1"); // TODO checkpoint
 				Title();
 			}
+			totalTouristScanner.close();
 		}
 		
 		public static void Name(){
-			Scanner nameScanner = new Scanner(System.in);
-			System.out.println("Hello visitor, what is your name and your title");
-			String touristName = nameScanner.nextLine();
-			String touristTitle = nameScanner.nextLine();
-					System.out.println(" Hello " +touristName+ " The" +touristTitle+ "" );
+			System.out.println("Hello visitor, what is your name");
+			String touristName = totalTouristScanner.nextLine();
+			System.out.println("... And your title?");
+			String touristTitle = totalTouristScanner.nextLine();
+			System.out.println(" Thank you, " +touristName+ " the " +touristTitle+ "" );
 		}
 		
 		public static void Title(){
-			Scanner nameScanner = new Scanner(System.in);
-			boolean genderQuestion = nameScanner.nextBoolean();
-			System.out.println(" What is your gender");
-			System.out.println(" I am of " +genderQuestion+ " gender ");
-			Scanner ageScanner = new Scanner(System.in);
-			
-			if( genderQuestion = true){
+			System.out.println("What is your gender (Male/Female)");
+			String genderQuestion = totalTouristScanner.nextLine().trim();
+			System.out.println("You are of the " +genderQuestion+ " gender ");
+			System.out.println("CHECKPOINT 3");  // TODO checkpoint
+			if(genderQuestion.equalsIgnoreCase("Male")){
 				System.out.println(" How old are you ");
-				int ageQuestion = ageScanner.nextInt();
+				int ageQuestion = 0;
+				try {
+					ageQuestion = Integer.parseInt(totalTouristScanner.nextLine());
+				} catch (NumberFormatException e) {
+				    e.printStackTrace();
+				}
 				System.out.println(" You are " +ageQuestion+ " Years old");
 				System.out.println(" Have an exellent stay");
 			}
@@ -44,4 +55,4 @@ import java.util.Scanner;
 				System.out.println(" Have an exellent stay");
 			}
 		}
-		}
+	}
