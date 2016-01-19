@@ -7,7 +7,7 @@ import java.util.Scanner;
 		private static Scanner totalTouristScanner = new Scanner(System.in);
 
 		public static void main(String args[]){
-			int touristNumber;
+			int touristNumber; //
 			
 			
 			System.out.println(" How many Tourists are there ");
