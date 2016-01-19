@@ -19,6 +19,7 @@ import java.util.Scanner;
 			}
 				
 			for(int i = 0; i < touristNumber; i++){
+				System.out.println("CHECKPOINT 2"); // TODO checkpoint
 				Name();
 				Title();
 			}
