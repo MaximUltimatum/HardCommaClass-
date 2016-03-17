@@ -12,12 +12,12 @@ public class portfolioClass {
 		static int intVowel;
 		static boolean didIGuessWord = false;
 		static int wordLength;
-		static boolean stopAsk;
+		static boolean stopAsk = false;
 		static boolean getallVowels;
 		static int numberLocation;
-		static boolean stopAsk2;
+		static boolean stopAsk2 = false;
 		static int intConsenant;
-		
+		static boolean stopAskC;
 		// declare arrays here
 		public final static char[] possibleConsenants = {'B','C','D','F','G','H','J','L','M','N','O','P','Q','R','S','T','V','W','X','Z'};
 		public final static char[] possibleVowels = {'A','E','I','O','U','Y'};
@@ -27,15 +27,21 @@ public class portfolioClass {
 		public static void main(String args[]){
 			System.out.println("What is Your Name ");
 			nameVariable = portFolioScanner.nextLine();
-			System.out.println(" Think of a word that is less than 10 letters long and is an english word found in the dictionary");
-			System.out.println("It can not have any apostraphys or contractions");
-			
-			System.out.println("How long is the word?");
-			wordLength = portFolioScanner.nextInt();
-			
-			portFolioGuessVowels();
-			portFolioGuessConsenants();
-			theWord[0] = 'z';
+			boolean letYouGo = false;
+			while(letYouGo = false){
+				System.out.println(" Think of a word that is less than 10 letters long and is an english word found in the dictionary");
+				System.out.println("It can not have any apostraphys or contractions");
+				
+				System.out.println("How long is the word?");
+				wordLength = portFolioScanner.nextInt();
+				
+				portFolioGuessVowels();
+				portFolioGuessConsenants();
+				
+				System.out.println("Will you come again some time, " + nameVariable);
+				letYouGo = portFolioScanner.nextBoolean();
+				System.out.println("All right then");
+			}
 			
 		}
 		
@@ -77,15 +83,18 @@ public class portfolioClass {
 
 	 public static void portFolioGuessConsenants() {
 			System.out.println(" Checkpoint 1");
-		 while (stopAsk2 = false){
-			 char rememberTheCharacter =  possibleConsenants[(int) Math.round(Math.random() * 5)];
+		 while (stopAsk2 == false){
+			 
+			 char rememberTheCharacter =  possibleConsenants[(int) Math.round(Math.random() * 19)];
 		 		 
 		 System.out.println("Does the word have a/an " + rememberTheCharacter + " (true/false) ");
 			intVariable = portFolioScanner.nextBoolean();
 			if(intVariable == false ){
 				System.out.println("I will guess again");
 				System.out.println(" Checkpoint 2");
+				printWord();
 			}
+		
 			else{
 				intVariable = true;
 				System.out.println(" How many of those letters does it have?");
@@ -95,17 +104,21 @@ public class portfolioClass {
 					System.out.println("What space is your letter or letters on?");
 					numberLocation = portFolioScanner.nextInt();
 					numberLocation--;
-					theWord[numberLocation] = rememberTheCharacter;
+					printWord();
+					theWord [ numberLocation ] = rememberTheCharacter;
 				}
-				System.out.println("Did I guess all the consanants?");
-					}
-			for(int i = 0; i < 9; i++){
-				System.out.print(theWord[i]);
-					}
+				System.out.println("Did I guess all the consenants?");
+				stopAskC = portFolioScanner.nextBoolean();
+				if(stopAskC == true  ){
+					stopAsk2 = true;
+					System.out.println();
+					System.out.println("You may go now, please come again" + nameVariable);
 				}
-			System.out.println();
-			System.out.println(" Game Over");
-			portFolioScanner.close();
+				
+					}
+			
+				}
+			
 	 }
 	 			
 	 public static void printWord(){
