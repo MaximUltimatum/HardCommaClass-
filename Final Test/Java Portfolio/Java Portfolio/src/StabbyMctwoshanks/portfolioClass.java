@@ -15,6 +15,8 @@ public class portfolioClass {
 		static boolean stopAsk;
 		static boolean getallVowels;
 		static int numberLocation;
+		static boolean stopAsk2;
+		static int intConsenant;
 		
 		// declare arrays here
 		public final static char[] possibleConsenants = {'B','C','D','F','G','H','J','L','M','N','O','P','Q','R','S','T','V','W','X','Z'};
@@ -32,7 +34,7 @@ public class portfolioClass {
 			wordLength = portFolioScanner.nextInt();
 			
 			portFolioGuessVowels();
-			portFolioGuessConsanants();
+			portFolioGuessConsenants();
 			theWord[0] = 'z';
 			
 		}
@@ -67,37 +69,44 @@ public class portfolioClass {
 				
 			if ( stopAsk == true){
 				System.out.println(" Moving on to consanants");
-			
 			}
 			printWord();
 
 		}			
 	}
 
-	 public static void portFolioGuessConsanants() {
-		 System.out.println("Does the word have a/an " + possibleConsenants[(int) Math.round(Math.random() * 5)]+ " (true/false) ");
+	 public static void portFolioGuessConsenants() {
+			System.out.println(" Checkpoint 1");
+		 while (stopAsk2 = false){
+			 char rememberTheCharacter =  possibleConsenants[(int) Math.round(Math.random() * 5)];
+		 		 
+		 System.out.println("Does the word have a/an " + rememberTheCharacter + " (true/false) ");
 			intVariable = portFolioScanner.nextBoolean();
 			if(intVariable == false ){
 				System.out.println("I will guess again");
+				System.out.println(" Checkpoint 2");
 			}
 			else{
 				intVariable = true;
 				System.out.println(" How many of those letters does it have?");
-				intVowel = portFolioScanner.nextInt();
+				intConsenant = portFolioScanner.nextInt();
 				int worldLength = 1;
-				for (int i = 0; i < worldLength; i++){
-					System.out.println(theWord[i]);
-					System.out.println(" On what space is the letter(s) in question");
+				for (int v = 0; v < intVowel; v++){
+					System.out.println("What space is your letter or letters on?");
+					numberLocation = portFolioScanner.nextInt();
+					numberLocation--;
+					theWord[numberLocation] = rememberTheCharacter;
 				}
 				System.out.println("Did I guess all the consanants?");
 					}
 			for(int i = 0; i < 9; i++){
 				System.out.print(theWord[i]);
-			}
+					}
+				}
 			System.out.println();
 			System.out.println(" Game Over");
 			portFolioScanner.close();
-				}
+	 }
 	 			
 	 public static void printWord(){
 		 System.out.println();
@@ -111,8 +120,3 @@ public class portfolioClass {
 		 return t;
 	 }
 		}  // end class portfolioClass;
-
-
-
-
-
